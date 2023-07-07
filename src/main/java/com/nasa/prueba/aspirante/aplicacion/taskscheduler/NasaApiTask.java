@@ -9,6 +9,8 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
@@ -48,7 +50,10 @@ public class NasaApiTask {
         nasaDataEntity.setCenter(firstData.getCenter());
         nasaDataEntity.setTitle(firstData.getTitle());
         nasaDataEntity.setNasa_id(firstData.getNasa_id());
-        nasaDataEntity.setDate_created(LocalDateTime.parse(firstData.getDate_created()));
+
+        OffsetDateTime offsetDateTime = OffsetDateTime.parse(firstData.getDate_created());
+        LocalDateTime localDateTime = offsetDateTime.atZoneSameInstant(ZoneOffset.UTC).toLocalDateTime();
+        nasaDataEntity.setDate_created(localDateTime);
 
         return nasaDataEntity;
     }
