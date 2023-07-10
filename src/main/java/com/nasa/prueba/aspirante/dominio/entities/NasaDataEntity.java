@@ -30,7 +30,6 @@ public class NasaDataEntity {
     private LocalDateTime date_created;
 
     public NasaDataEntity(NasaDataDto nasaDataDto) {
-        this.href = nasaDataDto.getCollection().getHref();
         List<NasaDataDto.NasaApiItem> items = nasaDataDto.getCollection().getItems();
         if (!items.isEmpty()) {
             NasaDataDto.NasaApiItem item = items.get(0);

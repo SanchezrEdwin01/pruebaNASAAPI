@@ -52,10 +52,6 @@ public class NasaApiClient {
                     NasaDataDto.NasaApiItem firstItem = nasaDataDto.getCollection().getItems().get(0);
                     if (!firstItem.getData().isEmpty()) {
                         NasaDataDto.NasaApiData firstData = firstItem.getData().get(0);
-                        System.out.println("Center: " + firstData.getCenter());
-                        System.out.println("Title: " + firstData.getTitle());
-                        System.out.println("Nasa ID: " + firstData.getNasa_id());
-                        System.out.println("Date Created: " + firstData.getDate_created());
                     }
                 }
 
